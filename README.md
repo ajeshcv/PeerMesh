@@ -7,7 +7,6 @@
 ![Room](https://img.shields.io/badge/Room-Database-blue?style=for-the-badge)
 ![Bluetooth](https://img.shields.io/badge/Bluetooth-Mesh-0082FC?style=for-the-badge&logo=bluetooth)
 ![WiFi Direct](https://img.shields.io/badge/Wi--Fi-Direct-2196F3?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-red?style=for-the-badge)
 
 ### **Offline Mesh Communication System**
 
