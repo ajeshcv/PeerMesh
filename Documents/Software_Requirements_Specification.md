@@ -1723,3 +1723,657 @@ The system should be developed responsibly.
 # Chapter Summary
 
 This chapter defined the non-functional requirements that determine the overall quality of PeerMesh. These requirements cover performance, reliability, availability, security, privacy, usability, maintainability, scalability, portability, compatibility, efficient resource utilization, backup and recovery, and legal considerations. Together, they establish the quality standards that the system must satisfy throughout development and deployment.
+
+
+
+
+---
+
+# 6. System Models
+
+System models describe the behavior and interaction of the PeerMesh system using UML concepts. These models help visualize how users interact with the application and how different system components collaborate to perform various operations.
+
+The primary modeling technique used for PeerMesh is the **Use Case Model**, which identifies the actors, system functionalities, and their interactions.
+
+---
+
+# 6.1 Actors
+
+The following actors interact with the PeerMesh system.
+
+| Actor | Description |
+|--------|-------------|
+| User | A person using the PeerMesh application to communicate, share files, and manage their profile. |
+| Nearby Device | Another PeerMesh device participating in the mesh network. |
+| Relay Node | A nearby PeerMesh device that forwards messages to extend communication range. |
+| Android Operating System | Provides Bluetooth, Wi-Fi Direct, notifications, permissions, and storage services. |
+
+---
+
+# 6.2 Use Case Overview
+
+The PeerMesh system provides the following major use cases.
+
+| Use Case ID | Use Case |
+|-------------|----------|
+| UC-01 | Create User Profile |
+| UC-02 | Edit Profile |
+| UC-03 | Discover Nearby Devices |
+| UC-04 | Connect to Device |
+| UC-05 | Send Message |
+| UC-06 | Receive Message |
+| UC-07 | Create Group |
+| UC-08 | Join Group |
+| UC-09 | Share File |
+| UC-10 | View Chat History |
+| UC-11 | Configure Settings |
+| UC-12 | Disconnect Device |
+
+---
+
+# 6.3 Use Case Descriptions
+
+---
+
+## UC-01 – Create User Profile
+
+### Description
+
+Allows a new user to create a local PeerMesh profile.
+
+### Primary Actor
+
+User
+
+### Preconditions
+
+- Application installed.
+
+### Main Flow
+
+1. User opens the application.
+2. System displays profile setup.
+3. User enters username.
+4. User optionally selects a profile picture.
+5. User saves the profile.
+6. System stores profile information locally.
+
+### Alternative Flow
+
+- User skips profile picture selection.
+
+### Postconditions
+
+- User profile is available for future communication.
+
+---
+
+## UC-02 – Edit Profile
+
+### Primary Actor
+
+User
+
+### Description
+
+Allows users to modify profile information.
+
+### Main Flow
+
+1. Open Settings.
+2. Select Edit Profile.
+3. Update profile information.
+4. Save changes.
+
+### Postconditions
+
+Updated profile information is stored locally.
+
+---
+
+## UC-03 – Discover Nearby Devices
+
+### Primary Actor
+
+User
+
+### Supporting Actor
+
+Android Operating System
+
+### Description
+
+Searches for nearby PeerMesh devices.
+
+### Main Flow
+
+1. User opens Nearby Devices.
+2. Application starts Bluetooth and Wi-Fi Direct discovery.
+3. Nearby devices are detected.
+4. Device list is displayed.
+
+### Alternative Flow
+
+No nearby devices found.
+
+### Postconditions
+
+Nearby devices become available for connection.
+
+---
+
+## UC-04 – Connect to Device
+
+### Primary Actor
+
+User
+
+### Description
+
+Establishes communication with another nearby PeerMesh device.
+
+### Main Flow
+
+1. Select nearby device.
+2. Send connection request.
+3. Remote device accepts request.
+4. Connection established.
+
+### Alternative Flow
+
+Connection request rejected.
+
+### Postconditions
+
+Secure communication channel established.
+
+---
+
+## UC-05 – Send Message
+
+### Primary Actor
+
+User
+
+### Supporting Actor
+
+Relay Node
+
+### Description
+
+Sends a text message through the mesh network.
+
+### Main Flow
+
+1. Open conversation.
+2. Type message.
+3. Press Send.
+4. System determines route.
+5. Message transmitted.
+6. Delivery status updated.
+
+### Alternative Flow
+
+No available communication route.
+
+### Postconditions
+
+Message stored locally.
+
+---
+
+## UC-06 – Receive Message
+
+### Primary Actor
+
+User
+
+### Description
+
+Receives a message from another user.
+
+### Main Flow
+
+1. Incoming message detected.
+2. Message decrypted.
+3. Stored locally.
+4. Notification displayed.
+5. User reads message.
+
+### Postconditions
+
+Message available in conversation history.
+
+---
+
+## UC-07 – Create Group
+
+### Primary Actor
+
+User
+
+### Description
+
+Creates a new group conversation.
+
+### Main Flow
+
+1. Select Create Group.
+2. Enter group name.
+3. Select members.
+4. Save group.
+
+### Postconditions
+
+New group created.
+
+---
+
+## UC-08 – Join Group
+
+### Primary Actor
+
+User
+
+### Description
+
+Allows users to join an existing group.
+
+### Main Flow
+
+1. Receive invitation.
+2. Accept invitation.
+3. Group added to chat list.
+
+### Alternative Flow
+
+Invitation declined.
+
+### Postconditions
+
+User becomes group member.
+
+---
+
+## UC-09 – Share File
+
+### Primary Actor
+
+User
+
+### Description
+
+Transfers files through the mesh network.
+
+### Main Flow
+
+1. Select attachment.
+2. Choose file.
+3. Select recipient.
+4. File transferred.
+5. Recipient receives notification.
+
+### Alternative Flow
+
+Transfer interrupted.
+
+### Postconditions
+
+File stored on recipient device.
+
+---
+
+## UC-10 – View Chat History
+
+### Primary Actor
+
+User
+
+### Description
+
+Displays previously exchanged messages.
+
+### Main Flow
+
+1. Open conversation.
+2. Load local messages.
+3. Display chat history.
+
+### Postconditions
+
+Conversation visible.
+
+---
+
+## UC-11 – Configure Settings
+
+### Primary Actor
+
+User
+
+### Description
+
+Allows customization of application preferences.
+
+### Main Flow
+
+1. Open Settings.
+2. Modify preferences.
+3. Save changes.
+
+### Postconditions
+
+Settings updated.
+
+---
+
+## UC-12 – Disconnect Device
+
+### Primary Actor
+
+User
+
+### Description
+
+Disconnects from another PeerMesh device.
+
+### Main Flow
+
+1. Select connected device.
+2. Disconnect.
+3. Connection terminated.
+
+### Postconditions
+
+Device removed from active connection list.
+
+---
+
+# 6.4 Use Case Relationships
+
+The following relationships exist among the system use cases.
+
+### Include Relationships
+
+- Send Message includes Route Discovery.
+- Send Message includes Encryption.
+- Receive Message includes Decryption.
+- Share File includes Device Connection.
+- Connect Device includes Authentication.
+
+### Extend Relationships
+
+- File Sharing extends Chat.
+- Group Messaging extends Messaging.
+- Notifications extend Receive Message.
+
+---
+
+# 6.5 Use Case Diagram
+
+The complete UML Use Case Diagram is provided in the separate document:
+
+```
+Documents/
+└── 05_Use_Case_Diagram.md
+```
+
+The diagram illustrates:
+
+- Actors
+- System boundary
+- Major use cases
+- Include relationships
+- Extend relationships
+
+---
+
+# Chapter Summary
+
+This chapter introduced the system actors, major use cases, detailed use case specifications, and use case relationships for PeerMesh. These models define how users interact with the application and serve as the foundation for later UML diagrams, system design, implementation, and testing.
+
+
+
+---
+
+# 7. Data Requirements
+
+This chapter describes the data requirements of the PeerMesh system, including the major entities, their attributes, relationships, validation rules, storage requirements, and data integrity constraints.
+
+Since PeerMesh is primarily an offline application, all essential data is stored locally on the user's device using the Room Database. The database maintains user information, conversations, messages, groups, files, and application settings.
+
+---
+
+# 7.1 Data Storage Overview
+
+PeerMesh stores all operational data locally to ensure that messaging and other core features continue to work without an internet connection.
+
+The local database is responsible for:
+
+- Storing user profile information
+- Maintaining nearby device records
+- Saving conversations
+- Storing messages
+- Managing groups
+- Tracking file transfers
+- Saving application settings
+
+---
+
+# 7.2 Database Entities
+
+The primary entities used in PeerMesh are:
+
+| Entity | Description |
+|---------|-------------|
+| User | Stores local user profile information. |
+| Device | Represents discovered PeerMesh devices. |
+| Chat | Represents one-to-one conversations. |
+| Message | Stores exchanged messages. |
+| Group | Represents group conversations. |
+| GroupMember | Stores membership information for groups. |
+| FileTransfer | Stores metadata about shared files. |
+| Settings | Stores user preferences and application settings. |
+
+---
+
+# 7.3 Entity Attributes
+
+## User
+
+| Attribute | Type | Description |
+|-----------|------|-------------|
+| userId | UUID | Unique identifier |
+| username | String | Display name |
+| profileImage | String | Profile picture path |
+| createdAt | DateTime | Profile creation time |
+
+---
+
+## Device
+
+| Attribute | Type | Description |
+|-----------|------|-------------|
+| deviceId | UUID | Unique device identifier |
+| deviceName | String | Device name |
+| connectionType | String | Bluetooth or Wi-Fi Direct |
+| status | String | Connected / Disconnected |
+| lastSeen | DateTime | Last detected time |
+
+---
+
+## Chat
+
+| Attribute | Type | Description |
+|-----------|------|-------------|
+| chatId | UUID | Chat identifier |
+| participantId | UUID | Connected user/device |
+| createdAt | DateTime | Chat creation time |
+
+---
+
+## Message
+
+| Attribute | Type | Description |
+|-----------|------|-------------|
+| messageId | UUID | Message identifier |
+| chatId | UUID | Associated chat |
+| senderId | UUID | Sender identifier |
+| receiverId | UUID | Receiver identifier |
+| content | Text | Message content |
+| messageType | String | Text, Image, Video, Audio, File |
+| timestamp | DateTime | Sent time |
+| status | String | Pending, Sent, Delivered, Read |
+
+---
+
+## Group
+
+| Attribute | Type | Description |
+|-----------|------|-------------|
+| groupId | UUID | Group identifier |
+| groupName | String | Name of the group |
+| createdBy | UUID | Group creator |
+| createdAt | DateTime | Creation time |
+
+---
+
+## GroupMember
+
+| Attribute | Type | Description |
+|-----------|------|-------------|
+| memberId | UUID | Membership identifier |
+| groupId | UUID | Associated group |
+| userId | UUID | Member identifier |
+| joinedAt | DateTime | Joining time |
+
+---
+
+## FileTransfer
+
+| Attribute | Type | Description |
+|-----------|------|-------------|
+| fileId | UUID | File identifier |
+| senderId | UUID | Sender |
+| receiverId | UUID | Receiver |
+| fileName | String | File name |
+| fileType | String | MIME type |
+| fileSize | Long | File size |
+| transferredAt | DateTime | Transfer time |
+
+---
+
+## Settings
+
+| Attribute | Type | Description |
+|-----------|------|-------------|
+| settingId | UUID | Setting identifier |
+| theme | String | Light / Dark |
+| notificationsEnabled | Boolean | Notification preference |
+| bluetoothEnabled | Boolean | Bluetooth preference |
+| wifiDirectEnabled | Boolean | Wi-Fi Direct preference |
+
+---
+
+# 7.4 Entity Relationships
+
+The major relationships are:
+
+- One User has one local profile.
+- One User can have many Chats.
+- One Chat contains many Messages.
+- One User can create many Groups.
+- One Group contains many Members.
+- One User can belong to many Groups.
+- One User can send many File Transfers.
+- One Chat is associated with multiple Messages.
+
+---
+
+# 7.5 Data Validation Rules
+
+To maintain data quality, the following validation rules apply.
+
+| Field | Validation Rule |
+|-------|------------------|
+| Username | Required, 3–30 characters |
+| Message Content | Cannot be empty for text messages |
+| Group Name | Required, maximum 50 characters |
+| File Size | Must not exceed application limit |
+| Profile Image | Optional, valid image format |
+| Device Name | Retrieved from system, read-only |
+
+---
+
+# 7.6 Data Integrity Constraints
+
+The system shall enforce the following constraints.
+
+- Each User shall have a unique identifier.
+- Each Message shall belong to a valid Chat.
+- Each Chat shall reference an existing participant.
+- Each GroupMember shall reference a valid Group.
+- Each FileTransfer shall reference valid sender and receiver records.
+- Orphaned records should be avoided where possible.
+
+---
+
+# 7.7 Data Retention
+
+The application stores data locally until the user chooses to remove it.
+
+Retention policy:
+
+- Chat history remains available unless deleted.
+- Shared files remain available until removed.
+- User settings persist across application restarts.
+- Device discovery records may be refreshed or discarded as devices become unavailable.
+
+---
+
+# 7.8 Data Security
+
+Stored information should be protected through appropriate security measures.
+
+Examples include:
+
+- Encrypt sensitive local data where appropriate.
+- Protect message contents during transmission.
+- Prevent unauthorized access to stored data.
+- Restrict access to application data using Android security mechanisms.
+
+---
+
+# 7.9 Storage Requirements
+
+Minimum storage recommendations:
+
+| Component | Approximate Storage |
+|-----------|---------------------|
+| Application | 50 MB |
+| Local Database | Dynamic |
+| Shared Files | User dependent |
+| Cache | Up to 100 MB (configurable) |
+
+The application should manage storage efficiently by removing temporary files when they are no longer required.
+
+---
+
+# 7.10 Data Dictionary
+
+| Entity | Purpose |
+|---------|---------|
+| User | Local profile information |
+| Device | Nearby device information |
+| Chat | Conversation records |
+| Message | Message details |
+| Group | Group information |
+| GroupMember | Group membership |
+| FileTransfer | File transfer metadata |
+| Settings | Application preferences |
+
+---
+
+# Chapter Summary
+
+This chapter described the data requirements of PeerMesh, including the core entities, attributes, relationships, validation rules, integrity constraints, storage considerations, and security requirements. These specifications provide the basis for the database design and Entity–Relationship (ER) diagram that will be developed during the design phase.
