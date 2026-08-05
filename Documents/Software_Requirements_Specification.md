@@ -1059,3 +1059,667 @@ Allows users to customize application behavior.
 | Notifications | FR-36 – FR-38 |
 | Security | FR-39 – FR-42 |
 | Settings | FR-43 – FR-45 |
+
+---
+
+# 4. External Interface Requirements
+
+This chapter defines the external interfaces through which users, hardware, software components, and communication protocols interact with the PeerMesh system.
+
+---
+
+# 4.1 User Interface (UI)
+
+## Overview
+
+PeerMesh provides a clean, responsive, and user-friendly interface following Android Material Design guidelines. The interface is designed to minimize user interaction while providing quick access to messaging, nearby devices, and network status.
+
+The application supports both Light Mode and Dark Mode and is optimized for smartphones running Android 10 or later.
+
+---
+
+## UI Design Principles
+
+- Simple and intuitive navigation
+- Consistent design across all screens
+- Responsive layout for different screen sizes
+- Accessibility-friendly controls
+- Minimal user interaction for network setup
+- Fast response time
+- Material Design components
+
+---
+
+## Main Screens
+
+### Splash Screen
+
+Purpose:
+- Display application logo
+- Initialize system components
+- Load user settings
+
+---
+
+### Welcome Screen
+
+Features:
+
+- Application introduction
+- Create profile
+- Continue to application
+
+---
+
+### Home Screen
+
+Features:
+
+- Nearby Devices
+- Recent Chats
+- Group Chats
+- Network Status
+- Search
+- Navigation Menu
+
+---
+
+### Nearby Devices Screen
+
+Features:
+
+- Scan nearby devices
+- Device availability
+- Connection status
+- Connect button
+- Refresh device list
+
+---
+
+### Chat Screen
+
+Features:
+
+- Text messaging
+- Emoji support
+- File sharing
+- Image preview
+- Message status
+- Read receipts
+
+---
+
+### Group Chat Screen
+
+Features:
+
+- Group messages
+- Group information
+- Member list
+- Shared media
+
+---
+
+### File Sharing Screen
+
+Features:
+
+- Select files
+- File preview
+- Transfer progress
+- Transfer history
+
+---
+
+### Settings Screen
+
+Features:
+
+- Profile settings
+- Notifications
+- Theme
+- Bluetooth
+- Wi-Fi Direct
+- About
+- Privacy
+
+---
+
+## Navigation Flow
+
+```
+Splash Screen
+      │
+      ▼
+Welcome Screen
+      │
+      ▼
+Home Screen
+ ├── Nearby Devices
+ ├── Chats
+ ├── Groups
+ ├── File Sharing
+ └── Settings
+```
+
+---
+
+# 4.2 Hardware Interface
+
+PeerMesh interacts with the following hardware components.
+
+## Bluetooth Adapter
+
+Purpose:
+
+- Device discovery
+- Peer communication
+- Message transfer
+
+---
+
+## Wi-Fi Direct Adapter
+
+Purpose:
+
+- High-speed communication
+- File transfer
+- Mesh communication
+
+---
+
+## Device Storage
+
+Purpose:
+
+- Store messages
+- Store contacts
+- Store shared files
+- Store settings
+
+---
+
+## Camera (Optional)
+
+Purpose:
+
+- Capture images
+- Share photos
+
+---
+
+## Gallery
+
+Purpose:
+
+- Select images
+- Select videos
+- Select documents
+
+---
+
+## Battery
+
+The application monitors battery usage to avoid excessive power consumption during continuous mesh networking.
+
+---
+
+# 4.3 Software Interface
+
+PeerMesh communicates with the following software components.
+
+## Android Operating System
+
+Responsibilities:
+
+- Activity management
+- Permissions
+- Notifications
+- Background services
+
+---
+
+## Android Bluetooth API
+
+Purpose:
+
+- Bluetooth discovery
+- Device pairing
+- Communication
+
+---
+
+## Android Wi-Fi Direct API
+
+Purpose:
+
+- Peer discovery
+- Group formation
+- Data transfer
+
+---
+
+## Room Database
+
+Purpose:
+
+- Local storage
+- Message persistence
+- Offline access
+
+---
+
+## Android Notification Manager
+
+Purpose:
+
+- Display notifications
+- Background alerts
+- Message notifications
+
+---
+
+## File System
+
+Purpose:
+
+- File storage
+- Media access
+- Document sharing
+
+---
+
+# 4.4 Communication Interface
+
+PeerMesh communicates using short-range wireless technologies.
+
+---
+
+## Bluetooth
+
+Functions:
+
+- Nearby device discovery
+- Text messaging
+- Low-bandwidth communication
+
+Advantages:
+
+- Low power consumption
+- Wide device compatibility
+
+---
+
+## Wi-Fi Direct
+
+Functions:
+
+- High-speed communication
+- Large file transfer
+- Group communication
+
+Advantages:
+
+- Faster than Bluetooth
+- Higher bandwidth
+
+---
+
+## Mesh Communication
+
+Functions:
+
+- Multi-hop routing
+- Automatic forwarding
+- Relay communication
+
+Benefits:
+
+- Extended communication range
+- Improved reliability
+- Decentralized communication
+
+---
+
+# 4.5 External Device Interface
+
+The system communicates with nearby Android devices running PeerMesh.
+
+Each connected device may perform one or more of the following roles:
+
+- Sender
+- Receiver
+- Relay Node
+
+Every participating device contributes to the mesh network by forwarding messages when required.
+
+---
+
+# 4.6 Database Interface
+
+The application uses a local Room Database.
+
+Major tables include:
+
+- Users
+- Contacts
+- Devices
+- Chats
+- Messages
+- Groups
+- Group Members
+- Shared Files
+- Settings
+
+The database operates entirely offline.
+
+---
+
+# 4.7 Security Interface
+
+The application provides several security mechanisms.
+
+### Authentication
+
+- Local device identity
+- Trusted peer verification
+
+---
+
+### Encryption
+
+- Encrypted message transmission
+- Encrypted local storage
+
+---
+
+### Permissions
+
+Required Android permissions include:
+
+- Bluetooth
+- Nearby Devices
+- Wi-Fi
+- Storage
+- Notifications
+- Camera (optional)
+
+The application requests permissions only when necessary.
+
+---
+
+# 4.8 Error Handling Interface
+
+The application provides informative messages for common situations.
+
+Examples include:
+
+| Situation | Response |
+|-----------|----------|
+| Bluetooth Disabled | Prompt user to enable Bluetooth |
+| Wi-Fi Direct Disabled | Prompt user to enable Wi-Fi Direct |
+| Device Not Found | Display "No nearby devices found." |
+| Connection Failed | Display retry option |
+| File Transfer Failed | Retry or cancel transfer |
+| Storage Full | Notify user about insufficient storage |
+
+---
+
+# 4.9 Accessibility Requirements
+
+PeerMesh is designed to support accessibility features.
+
+Supported features include:
+
+- Large touch targets
+- Readable fonts
+- High-contrast themes
+- Screen rotation support
+- Dark Mode
+- Descriptive icons
+- Responsive layouts
+
+---
+
+# 4.10 Performance Expectations
+
+The user interface should satisfy the following expectations.
+
+| Parameter | Requirement |
+|-----------|-------------|
+| App Launch Time | Less than 3 seconds |
+| Screen Transition | Less than 500 milliseconds |
+| Message Display | Immediate after reception |
+| Device Discovery Refresh | Within 5–10 seconds |
+| File Transfer Progress | Real-time updates |
+| Database Access | Less than 200 milliseconds |
+
+---
+
+# Chapter Summary
+
+This chapter defined the external interfaces required for PeerMesh, including user interface requirements, hardware and software interfaces, communication mechanisms, database interactions, security interfaces, accessibility considerations, and expected system performance.
+
+
+---
+
+# 5. Non-Functional Requirements
+
+Non-functional requirements specify the quality attributes, performance characteristics, security measures, and operational constraints that PeerMesh must satisfy. These requirements ensure that the system is reliable, secure, efficient, and easy to use.
+
+---
+
+# 5.1 Performance Requirements
+
+The application shall provide fast and responsive communication even in offline environments.
+
+### Requirements
+
+| ID | Requirement |
+|----|-------------|
+| NFR-1 | The application shall start within **3 seconds** under normal conditions. |
+| NFR-2 | The system shall display screen transitions within **500 milliseconds**. |
+| NFR-3 | Messages shall be processed immediately after being received. |
+| NFR-4 | Nearby device discovery should refresh within **5–10 seconds**. |
+| NFR-5 | The application shall support simultaneous communication with multiple nearby devices. |
+| NFR-6 | File transfer progress shall be displayed in real time. |
+
+---
+
+# 5.2 Reliability Requirements
+
+PeerMesh should continue operating correctly despite changing network conditions.
+
+### Requirements
+
+| ID | Requirement |
+|----|-------------|
+| NFR-7 | The application shall recover automatically from temporary connection failures whenever possible. |
+| NFR-8 | Messages shall remain stored locally until successfully delivered or removed by the user. |
+| NFR-9 | The application shall prevent message corruption during transmission. |
+| NFR-10 | Unexpected application termination shall not result in permanent message loss. |
+
+---
+
+# 5.3 Availability Requirements
+
+The system should remain available whenever the required hardware is enabled.
+
+### Requirements
+
+| ID | Requirement |
+|----|-------------|
+| NFR-11 | The application shall function without internet connectivity. |
+| NFR-12 | The application shall remain usable whenever Bluetooth or Wi-Fi Direct is available. |
+| NFR-13 | The application shall restore communication automatically after temporary interruptions whenever possible. |
+
+---
+
+# 5.4 Security Requirements
+
+Security is essential because users exchange personal messages and files.
+
+### Requirements
+
+| ID | Requirement |
+|----|-------------|
+| NFR-14 | Messages shall be encrypted during transmission. |
+| NFR-15 | Sensitive local data should be protected from unauthorized access. |
+| NFR-16 | The application shall verify peer devices before establishing communication. |
+| NFR-17 | The system shall request only the Android permissions necessary for its features. |
+| NFR-18 | Users shall have control over shared files and conversations stored on their device. |
+
+---
+
+# 5.5 Privacy Requirements
+
+The application shall respect user privacy.
+
+### Requirements
+
+| ID | Requirement |
+|----|-------------|
+| NFR-19 | Personal information shall remain on the user's device unless intentionally shared. |
+| NFR-20 | The application shall not require internet access for normal messaging operations. |
+| NFR-21 | The system shall not collect unnecessary personal information. |
+
+---
+
+# 5.6 Usability Requirements
+
+PeerMesh should be easy to learn and operate.
+
+### Requirements
+
+| ID | Requirement |
+|----|-------------|
+| NFR-22 | The interface shall follow Android Material Design guidelines. |
+| NFR-23 | Navigation shall remain consistent across all screens. |
+| NFR-24 | Common messaging tasks should require only a few user interactions. |
+| NFR-25 | Error messages shall be clear and understandable. |
+| NFR-26 | The application shall support both Light Mode and Dark Mode. |
+
+---
+
+# 5.7 Maintainability Requirements
+
+The system shall be easy to modify and maintain.
+
+### Requirements
+
+| ID | Requirement |
+|----|-------------|
+| NFR-27 | The application shall follow a modular software architecture. |
+| NFR-28 | Source code shall be documented using meaningful comments where appropriate. |
+| NFR-29 | Individual modules shall be independently testable. |
+| NFR-30 | New features should be added with minimal impact on existing functionality. |
+
+---
+
+# 5.8 Scalability Requirements
+
+The application should support growth in functionality and network size.
+
+### Requirements
+
+| ID | Requirement |
+|----|-------------|
+| NFR-31 | The architecture shall support future feature expansion. |
+| NFR-32 | The system should accommodate additional communication capabilities such as voice and video in future versions. |
+| NFR-33 | The design should support larger mesh networks within hardware limitations. |
+
+---
+
+# 5.9 Portability Requirements
+
+PeerMesh should remain compatible with supported Android devices.
+
+### Requirements
+
+| ID | Requirement |
+|----|-------------|
+| NFR-34 | The application shall support Android 10 and above. |
+| NFR-35 | The application should function across different Android manufacturers where Bluetooth and Wi-Fi Direct are supported. |
+
+---
+
+# 5.10 Compatibility Requirements
+
+The application should integrate with Android platform services.
+
+### Requirements
+
+| ID | Requirement |
+|----|-------------|
+| NFR-36 | The application shall use Android Bluetooth APIs. |
+| NFR-37 | The application shall use Android Wi-Fi Direct APIs. |
+| NFR-38 | The application shall integrate with Android Notification Manager. |
+| NFR-39 | The application shall use Room Database for local persistence. |
+
+---
+
+# 5.11 Resource Requirements
+
+The application should use device resources efficiently.
+
+### Requirements
+
+| ID | Requirement |
+|----|-------------|
+| NFR-40 | Battery consumption shall be minimized during background operation. |
+| NFR-41 | The application shall manage memory efficiently to prevent unnecessary resource usage. |
+| NFR-42 | Temporary files should be cleaned up after successful transfers where appropriate. |
+
+---
+
+# 5.12 Backup and Recovery Requirements
+
+Although PeerMesh is primarily offline, it should recover gracefully from failures.
+
+### Requirements
+
+| ID | Requirement |
+|----|-------------|
+| NFR-43 | Chat history stored locally should remain available after restarting the application. |
+| NFR-44 | The application shall recover from unexpected shutdowns without corrupting stored data. |
+| NFR-45 | Failed message transfers should allow the user to retry when possible. |
+
+---
+
+# 5.13 Legal and Ethical Requirements
+
+The system should be developed responsibly.
+
+### Requirements
+
+| ID | Requirement |
+|----|-------------|
+| NFR-46 | The application shall respect user privacy. |
+| NFR-47 | The application shall comply with Android platform policies. |
+| NFR-48 | Open-source libraries used in the project shall comply with their respective licenses. |
+
+---
+
+# 5.14 Summary of Non-Functional Requirements
+
+| Category | Requirement IDs |
+|----------|-----------------|
+| Performance | NFR-1 – NFR-6 |
+| Reliability | NFR-7 – NFR-10 |
+| Availability | NFR-11 – NFR-13 |
+| Security | NFR-14 – NFR-18 |
+| Privacy | NFR-19 – NFR-21 |
+| Usability | NFR-22 – NFR-26 |
+| Maintainability | NFR-27 – NFR-30 |
+| Scalability | NFR-31 – NFR-33 |
+| Portability | NFR-34 – NFR-35 |
+| Compatibility | NFR-36 – NFR-39 |
+| Resource Usage | NFR-40 – NFR-42 |
+| Backup & Recovery | NFR-43 – NFR-45 |
+| Legal & Ethical | NFR-46 – NFR-48 |
+
+---
+
+# Chapter Summary
+
+This chapter defined the non-functional requirements that determine the overall quality of PeerMesh. These requirements cover performance, reliability, availability, security, privacy, usability, maintainability, scalability, portability, compatibility, efficient resource utilization, backup and recovery, and legal considerations. Together, they establish the quality standards that the system must satisfy throughout development and deployment.
