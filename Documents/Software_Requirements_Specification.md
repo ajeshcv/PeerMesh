@@ -2377,3 +2377,205 @@ The application should manage storage efficiently by removing temporary files wh
 # Chapter Summary
 
 This chapter described the data requirements of PeerMesh, including the core entities, attributes, relationships, validation rules, integrity constraints, storage considerations, and security requirements. These specifications provide the basis for the database design and Entity–Relationship (ER) diagram that will be developed during the design phase.
+
+
+---
+
+# 8. Constraints, Assumptions, Future Enhancements, and References
+
+This chapter summarizes the limitations, assumptions, dependencies, future scope, and reference materials considered during the development of PeerMesh.
+
+---
+
+# 8.1 System Constraints
+
+The following constraints affect the design and implementation of PeerMesh.
+
+## Hardware Constraints
+
+- The application requires an Android device with Bluetooth support.
+- Wi-Fi Direct functionality depends on hardware compatibility.
+- Communication range is limited by wireless hardware capabilities.
+- Battery consumption may increase during prolonged mesh networking.
+
+---
+
+## Software Constraints
+
+- The application supports Android 10 (API Level 29) and above.
+- The system is developed using Java and Android Studio.
+- Local data persistence is provided through Room Database.
+- The application depends on Android Bluetooth and Wi-Fi Direct APIs.
+
+---
+
+## Network Constraints
+
+- Internet connectivity is not required for normal operation.
+- Communication is limited to devices participating in the mesh network.
+- Message delivery depends on the availability of relay devices for multi-hop routing.
+
+---
+
+## Storage Constraints
+
+- Available device storage limits the amount of locally stored messages and shared files.
+- Large media files may consume significant storage space.
+
+---
+
+# 8.2 Assumptions
+
+The development of PeerMesh is based on the following assumptions.
+
+- Users have Android smartphones that support Bluetooth and Wi-Fi Direct.
+- Required permissions are granted by the user.
+- Nearby users are also running the PeerMesh application.
+- Devices remain powered during communication.
+- Sufficient storage is available for local data.
+
+---
+
+# 8.3 Dependencies
+
+PeerMesh depends on several hardware and software components.
+
+## Hardware
+
+- Android Smartphone
+- Bluetooth Adapter
+- Wi-Fi Adapter
+
+## Software
+
+- Android Operating System
+- Android SDK
+- Java Runtime
+- Room Database
+- Android Bluetooth API
+- Android Wi-Fi Direct API
+
+---
+
+# 8.4 Risks and Challenges
+
+The project may face the following challenges during development.
+
+## Technical Risks
+
+- Bluetooth compatibility differences between manufacturers.
+- Wi-Fi Direct implementation inconsistencies across devices.
+- Dynamic mesh topology causing route changes.
+- Battery drain during continuous discovery and communication.
+
+## Operational Risks
+
+- Users disabling Bluetooth or Wi-Fi Direct.
+- Devices moving out of communication range.
+- Interrupted file transfers due to device disconnection.
+
+## Mitigation Strategies
+
+- Implement automatic reconnection mechanisms.
+- Store undelivered messages locally for later delivery.
+- Optimize device discovery intervals to reduce battery usage.
+- Validate message integrity before marking delivery as complete.
+
+---
+
+# 8.5 Future Enhancements
+
+The modular architecture of PeerMesh allows future versions to introduce additional functionality.
+
+Possible enhancements include:
+
+- Voice calling
+- Video calling
+- Offline voice messaging
+- Location sharing
+- Emergency SOS broadcasting
+- QR code-based device pairing
+- Cloud synchronization for optional online backup
+- Cross-platform support (Android, iOS, Desktop)
+- Mesh network performance analytics
+- Integration with wearable devices
+- Improved routing algorithms for larger mesh networks
+
+---
+
+# 8.6 References
+
+The following resources were used while preparing this Software Requirements Specification.
+
+## Standards
+
+- IEEE Recommended Practice for Software Requirements Specifications (IEEE 29148)
+
+## Documentation
+
+- Android Developers Documentation
+- Java Platform Documentation
+- Bluetooth SIG Documentation
+- Wi-Fi Alliance Wi-Fi Direct Documentation
+- Material Design Guidelines
+
+## Development Tools
+
+- Android Studio
+- Java 17
+- Room Persistence Library
+- Git
+- GitHub
+
+---
+
+# 8.7 Conclusion
+
+The Software Requirements Specification (SRS) defines the functional and non-functional requirements for PeerMesh, an offline mesh communication system that enables secure peer-to-peer messaging without relying on internet connectivity.
+
+The document establishes the project's objectives, scope, system features, external interfaces, quality attributes, data requirements, and operational constraints. It serves as the primary reference for system design, implementation, testing, and maintenance throughout the software development lifecycle.
+
+By following the requirements described in this document, PeerMesh can be developed as a scalable, modular, and reliable offline communication platform suitable for educational, emergency response, industrial, and remote communication scenarios.
+
+---
+
+# Appendix A – Requirement Summary
+
+## Functional Requirements
+
+| Module | Requirement IDs |
+|---------|-----------------|
+| User Management | FR-1 – FR-4 |
+| Device Discovery | FR-5 – FR-8 |
+| Peer Connection | FR-9 – FR-11 |
+| Mesh Networking | FR-12 – FR-15 |
+| Routing | FR-16 – FR-19 |
+| Messaging | FR-20 – FR-27 |
+| File Sharing | FR-28 – FR-31 |
+| Local Database | FR-32 – FR-35 |
+| Notifications | FR-36 – FR-38 |
+| Security | FR-39 – FR-42 |
+| Settings | FR-43 – FR-45 |
+
+---
+
+## Non-Functional Requirements
+
+| Category | Requirement IDs |
+|----------|-----------------|
+| Performance | NFR-1 – NFR-6 |
+| Reliability | NFR-7 – NFR-10 |
+| Availability | NFR-11 – NFR-13 |
+| Security | NFR-14 – NFR-18 |
+| Privacy | NFR-19 – NFR-21 |
+| Usability | NFR-22 – NFR-26 |
+| Maintainability | NFR-27 – NFR-30 |
+| Scalability | NFR-31 – NFR-33 |
+| Portability | NFR-34 – NFR-35 |
+| Compatibility | NFR-36 – NFR-39 |
+| Resource Usage | NFR-40 – NFR-42 |
+| Backup & Recovery | NFR-43 – NFR-45 |
+| Legal & Ethical | NFR-46 – NFR-48 |
+
+---
+
